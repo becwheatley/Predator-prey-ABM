@@ -2022,22 +2022,25 @@ HORIZONTAL
 @#$#@#$#@
 ## WHAT IS IT?
 
-The purpose of the model is to simulate a terrestrial predator-prey interaction in habitats of varying structural complexity. It aims to understand how habitat features — specifically cover, obstacles and refuges — interact with performance capabilities and specific behaviours to affect the prey’s probability of detection and the likelihood of escape during a pursuit.
+The model simulates a terrestrial predator-prey interaction in habitats with varying numbers of obstacles and refuges. It aims to help understand how these habitat features interact with the predator and prey's relative performance capabilities and specific behaviours to determine the outcome of a pursuit. The model tracks whether or not the prey is detected by the predator (and, if so, the time to detection), whether the prey escapes if detected, along with features of a resulting pursuit such as the length of the prey's escape path and the predator's pursuit path, along with the duration of the pursuit.
+
+If using or modifying the model, please cite:
+Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, <i>accepted in press</i>.
 
 ## HOW IT WORKS
 
-A predator (spider) and prey (mouse) forage slowly in the simulated world, moving around obstacles as they go. When a predator detects a prey, it moves directly toward it. If the prey detects the predator, it freezes, and then moves directly away at maximum speed if the predator comes within its flight initiation distance. The prey may also make random turns in an attempt to outmanouvre the predator. The predator tries to pursue the prey at maximum speed, always attempting to be moving directly towards the prey. If the predator gets close enough to the prey, it will kill it.
+A predator (spider) and prey (mouse) forage slowly in the simulated world, moving around obstacles as they go. When a predator detects a prey, it stalks directly toward it, only accelerating towards maximum speed once it is detected by the prey. If the prey detects the predator, it freezes, and then moves directly away at maximum speed if the predator comes within its flight initiation distance. The prey may also makes semi-random turns in an attempt to outmanouvre the predator. The predator tries to pursue the prey at maximum speed, always attempting to be moving directly towards the prey. If the predator gets close enough to the prey, it will kill it.
 
-Various factors control the movements the predators prey are allowed to make. Each has a defined maximum speed, acceleration, deceleration, and agility that constrain how fast it can move and the turns it is possible for it to make at a given velocity.
+Various factors control the movements the predators prey are allowed to make. Each has a defined maximum speed, acceleration, deceleration, and agility that constrain how fast it can move and the turns it is possible for it to make at a given velocity. These performance capabilities can be set manually or parameterised via scaling relationships with limb length.
 
-There is also the option to add obstacles (brown patches, which both predators and prey must avoid), refuges (green patches, which the prey can hide in), and target patches (yellow patches, areas of habitat that are not refuges but may still be safer for the prey by being next to several obstacles that may allow it to constrain the predator's pursuit path). If there are any refuges or target patches, the prey will tend to head toward them. If the prey enters a refuge, it becomes invisible to the predator, and the simulation ends. The user can also manipulate how much or little the predator and the prey can see through the obstacles. Obstacles can be completely transparent (easy to see through), completely opaque (impossible to see through), or some medium in between. This allows the user to manipulate obstacles and "cover" independently.
+There is also the option to add obstacles (brown patches, which both predators and prey must avoid), refuges (green patches, which the prey can hide in), and target patches (yellow patches, areas of habitat that are not refuges but may still be safer for the prey by being in located in areas what will allow the prey to make use of any superior performance capabilities relative to the predator). If there are any refuges or target patches, the prey will tend to head toward them. If the prey enters a refuge, it becomes invisible to the predator, and the simulation ends.
 
 ## HOW TO USE IT
 
 1. <i>Set the prey's performance and behavioural parameters by moving the sliders under "prey settings".</i> 
 <break></break>
 <break></break>
-	<b>prey-limb-length</b> controls the prey's maximum speed, maximum acceleration and deceleration, and agility (the maximum speed the prey can make a turn of 1 m radius). <break></break>
+	<b>prey-max-velocity</b>, <b>prey-agility</b>, <b>prey-acceleration</b>, and <b>prey-deceleration</b> control the prey's maximum speed, agility (the maximum speed the prey can make a turn of 1 m radius), maximum acceleration, and maximum deceleration, respectively. <break></break>
 <break></break>
 <b>prey-vision-distance</b> and <b>prey-vision-angle</b> determine how far the prey can see.
 <break></break>
@@ -2053,7 +2056,7 @@ There is also the option to add obstacles (brown patches, which both predators a
 2.  <i>Set the predator's performance and behavioural parameters by moving the sliders under "predator settings".</i> 
 <break></break>
 <break></break>
-	<b>predator-limb-length</b>, <b>predator-vision-distance</b>, <b>predator-vision-angle</b>, and <b>predator-exhaustion-distance</b> are the same as above, only for the predator.
+	<b>predator-max-velocity</b>, <b>predator-agility</b>, <b>predator-acceleration</b>, <b>predator-deceleration</b>, <b>predator-vision-distance</b>, <b>predator-vision-angle</b>, and <b>predator-exhaustion-distance</b> are the same as above, only for the predator.
 <break></break>
 	<b>Kill distance</b> is the distance the predator must get within in order to kill the prey.
 <break></break>
@@ -2066,8 +2069,6 @@ There is also the option to add obstacles (brown patches, which both predators a
 	<b>obstacle-radius</b> sets the mean size of each obstacle.
 <break></break>
 	<b>prey-obstacle-sensitivity</b> and <b>predator-obstacle-sensitivity</b> determine how much or little the predators and the prey avoid the obstacles.
-<break></break>
-	<b>prey-obstacle-transparency</b> and <b>predator-obstacle-transparency</b> determine how much or little the predators and prey can see through the obstacles.
 <break></break>	
 	<b>number-of-refuges</b> sets the number of refuges available in the habitat.
 <break></break>	
@@ -2079,43 +2080,46 @@ There is also the option to add obstacles (brown patches, which both predators a
 <break></break>
 	Watch the predator and the prey move around the world. What happens? Does the prey eventually escape, or not?
 
-
-## THINGS TO NOTICE
-
-
-
 ## THINGS TO TRY
 
-1. Try adjusting the predator and prey's limb lengths while keeping the other parameter settings the same. How often does the predator capture the prey when it has much longer limbs vs when it has shorter limbs?
-2. Try adjusting the habitat parameter settings while keeping the predator and prey's limb lengths constant. How does increasing the number of obstacles or refuges change how often the prey escapes? How do obstacles affect how long the predator takes to detect the prey?
+1. Try adjusting the predator and prey's performance capabilities while keeping the other parameter settings the same. How often does the predator capture the prey when it is faster and/or less agile or slower/more agile?
+<break></break>
+<break></break>
+2. Try adjusting the habitat parameter settings while keeping the predator and prey's performance capabilities constant. How does increasing the number of obstacles or refuges change how often the prey escapes? How do obstacles affect how long the predator takes to detect the prey?
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
-
 The code is judiciously commented to assist the user with understanding what each section of the code does, and facilitate modification for other purposes.
 
-## NETLOGO FEATURES
+Some interesting modifications would be:
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
-
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+* Incorporating other habitat features that influence performance capabilities, such as snow cover, uneven terrain, variation in surface friction, etc.;
+<break></break>
+<break></break>
+* Extending to include multiple prey and/or predators, of the same or different species (or other taxonomic group);
+<break></break>
+<break></break>
+* Making the prey's escape strategy dependent on the identity and/or preformance capabilities of the predator in question; 
+<break></break>
+<break></break>
+* Making the prey's various anti-predator behaviours dependent on it's distance to cover, familiarity with the terrain, social behaviours of other prey, etc.;
+<break></break>
+<break></break>
+* Making the predator's predation strategy (pursuit vs ambush) dependent on the identity of the predator and/or the composition of the habitat.
 
 ## CREDITS AND REFERENCES
 
 The model uses the following papers to parameterise some of the relationships it is based on (referenced appropriately in the code tab):
 
-Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1979) Allometry of the limb bones of mammals from shrews (Sorex) to elephant (Loxodonta). Journal of Zoology, 189, 305-314.
+Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1979) Allometry of the limb bones of mammals from shrews (Sorex) to elephant (Loxodonta). <i>Journal of Zoology</i>, 189, 305-314.
 
-Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1981) Allometry of the leg muscles of mammals. Journal of Zoology, 194, 539-552.
+Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1981) Allometry of the leg muscles of mammals. <i>Journal of Zoology</i>, 194, 539-552.
 
-Garland T. (1983) The relation between maximal running speed and body mass in terrestrial mammals. Journal of Zoology, 199, 157-170.
+Garland T. (1983) The relation between maximal running speed and body mass in terrestrial mammals. <i>Journal of Zoology</i>, 199, 157-170.
 
-Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. The American Naturalist, 212, 172-186.
+Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. <i>The American Naturalist</i>, 212, 172-186.
 
-Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. eLife, 4, 18.
+Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. <i>eLife</i>, 4, 18.
 @#$#@#$#@
 default
 true

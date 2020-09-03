@@ -266,7 +266,7 @@ to setup
     ;; Limb length dependent settings (comment out if user wishes to set performance manually as commented out above)
     set body-mass 162 * limb-length ^ (1 / 0.34)                                                                               ;; [kg] (using the scaling relationship for fissipeds from Alexander et al. 1979)
     set minimum-duty-factor 0.1 * body-mass ^ (0.1)                                                                            ;; fraction of the stride where the foot is on the ground (from Alexander et al. 1981)
-    set ground-reaction-force 4 * (body-mass / minimum-duty-factor)                                                            ;; [N] ??
+    set ground-reaction-force 4 * (body-mass / minimum-duty-factor)                                                            ;; [N]
     set acceleration (ground-reaction-force - (9.8 * body-mass)) / body-mass                                                   ;; [m/s^2]
     set deceleration -1 * acceleration                                                                                         ;; [m/s^2]
     set max-velocity 10 ^ (1.478 + 0.2589 * (log (RHO * limb-length ^ 3) 10) - 0.0623 * (log (RHO * limb-length ^ 3) 10 ) ^ 2) ;; [m/s] (from Garland 1983)
@@ -1402,7 +1402,7 @@ to-report is-visible? [ detector detector-heading detector-speed detector-max-sp
     let max-search-rate ((detector-max-speed * (2 * detector-vision-dist * sin(detector-vision-angle / 2)))) ;; calculate the maximum search rate the detector can employ
     let search-rate (detector-speed * (2 * detector-vision-dist * sin(detector-vision-angle / 2))) ;; calculate the current search rate of the detector
     let prob-detect ((1 - (search-rate / max-search-rate) ^ conspicuous) ^ (1 / conspicuous)) ;; calculate the probability that the detector will detect
-                                                                                                                           ;; the detectee (Gendron & Staddon 1983)
+                                                                                              ;; the detectee (Gendron & Staddon 1983)
     ifelse prob-detect > 0 ;; is the probability of detection greater than zero?
     [ ;; if yes (probability of being detected is greater than zero)
       ifelse random-float 1.0 <= prob-detect ;; the larger prob-detect is, the less likely it will be smaller than a random float between 0 and 1
@@ -1932,15 +1932,18 @@ prey-win
 @#$#@#$#@
 ## WHAT IS IT?
 
-The purpose of the model is to simulate a terrestrial predator-prey interaction in habitats of varying structural complexity. It aims to understand how habitat features — specifically, obstacles and refuges — interact with performance capabilities and specific behaviours to affect the prey’s probability of detection and the likelihood of escape during a pursuit.
+The model simulates a terrestrial predator-prey interaction in habitats with varying numbers of obstacles and refuges. It aims to help understand how these habitat features interact with the predator and prey's relative performance capabilities and specific behaviours to determine the outcome of a pursuit. The model tracks whether or not the prey is detected by the predator (and, if so, the time to detection), whether the prey escapes if detected, along with features of a resulting pursuit such as the length of the prey's escape path and the predator's pursuit path, along with the duration of the pursuit.
+
+If using or modifying the model, please cite:
+Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, <i>accepted in press</i>.
 
 ## HOW IT WORKS
 
 A predator (spider) and prey (mouse) forage slowly in the simulated world, moving around obstacles as they go. When a predator detects a prey, it stalks directly toward it, only accelerating towards maximum speed once it is detected by the prey. If the prey detects the predator, it freezes, and then moves directly away at maximum speed if the predator comes within its flight initiation distance. The prey may also makes semi-random turns in an attempt to outmanouvre the predator. The predator tries to pursue the prey at maximum speed, always attempting to be moving directly towards the prey. If the predator gets close enough to the prey, it will kill it.
 
-Various factors control the movements the predators prey are allowed to make. Each has a defined maximum speed, acceleration, deceleration, and agility that constrain how fast it can move and the turns it is possible for it to make at a given velocity.
+Various factors control the movements the predators prey are allowed to make. Each has a defined maximum speed, acceleration, deceleration, and agility that constrain how fast it can move and the turns it is possible for it to make at a given velocity. These performance capabilities can be set manually or parameterised via scaling relationships with limb length.
 
-There is also the option to add obstacles (brown patches, which both predators and prey must avoid), refuges (green patches, which the prey can hide in), and target patches (yellow patches, areas of habitat that are not refuges but may still be safer for the prey by being next to several obstacles that may allow it to constrain the predator's pursuit path). If there are any refuges or target patches, the prey will tend to head toward them. If the prey enters a refuge, it becomes invisible to the predator, and the simulation ends.
+There is also the option to add obstacles (brown patches, which both predators and prey must avoid), refuges (green patches, which the prey can hide in), and target patches (yellow patches, areas of habitat that are not refuges but may still be safer for the prey by being in located in areas what will allow the prey to make use of any superior performance capabilities relative to the predator). If there are any refuges or target patches, the prey will tend to head toward them. If the prey enters a refuge, it becomes invisible to the predator, and the simulation ends.
 
 ## HOW TO USE IT
 
@@ -1987,43 +1990,46 @@ There is also the option to add obstacles (brown patches, which both predators a
 <break></break>
 	Watch the predator and the prey move around the world. What happens? Does the prey eventually escape, or not?
 
-
-## THINGS TO NOTICE
-
-
-
 ## THINGS TO TRY
 
 1. Try adjusting the predator and prey's limb lengths while keeping the other parameter settings the same. How often does the predator capture the prey when it has much longer limbs vs when it has shorter limbs?
+<break></break>
+<break></break>
 2. Try adjusting the habitat parameter settings while keeping the predator and prey's limb lengths constant. How does increasing the number of obstacles or refuges change how often the prey escapes? How do obstacles affect how long the predator takes to detect the prey?
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
-
 The code is judiciously commented to assist the user with understanding what each section of the code does, and facilitate modification for other purposes.
 
-## NETLOGO FEATURES
+Some interesting modifications would be:
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
-
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+* Incorporating other habitat features that influence performance capabilities, such as snow cover, uneven terrain, variation in surface friction, etc.;
+<break></break>
+<break></break>
+* Extending to include multiple prey and/or predators, of the same or different species (or other taxonomic group);
+<break></break>
+<break></break>
+* Making the prey's escape strategy dependent on the identity and/or preformance capabilities of the predator in question; 
+<break></break>
+<break></break>
+* Making the prey's various anti-predator behaviours dependent on it's distance to cover, familiarity with the terrain, social behaviours of other prey, etc.;
+<break></break>
+<break></break>
+* Making the predator's predation strategy (pursuit vs ambush) dependent on the identity of the predator and/or the composition of the habitat.
 
 ## CREDITS AND REFERENCES
 
 The model uses the following papers to parameterise some of the relationships it is based on (referenced appropriately in the code tab):
 
-Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1979) Allometry of the limb bones of mammals from shrews (Sorex) to elephant (Loxodonta). Journal of Zoology, 189, 305-314.
+Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1979) Allometry of the limb bones of mammals from shrews (Sorex) to elephant (Loxodonta). <i>Journal of Zoology</i>, 189, 305-314.
 
-Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1981) Allometry of the leg muscles of mammals. Journal of Zoology, 194, 539-552.
+Alexander R.M., Jayes A.S., Maloiy G.M.O. & Wathuta E.M. (1981) Allometry of the leg muscles of mammals. <i>Journal of Zoology</i>, 194, 539-552.
 
-Garland T. (1983) The relation between maximal running speed and body mass in terrestrial mammals. Journal of Zoology, 199, 157-170.
+Garland T. (1983) The relation between maximal running speed and body mass in terrestrial mammals. <i>Journal of Zoology</i>, 199, 157-170.
 
-Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. The American Naturalist, 212, 172-186.
+Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. <i>The American Naturalist</i>, 212, 172-186.
 
-Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. eLife, 4, 18.
+Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. <i>eLife</i>, 4, 18.
 @#$#@#$#@
 default
 true
