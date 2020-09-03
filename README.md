@@ -9,7 +9,8 @@ Below is a description of the contents of each folder.
 
 **Model code**
 
-Contains two versions of the model NetLogo code (these are nearly identical, the only difference being the parameters that are set in the 'interface' tab):
+Contains two versions of the model NetLogo code (these are nearly identical, the only difference being the parameters that are set in the 'interface' tab). Model code is compatible with NetLogo v6.1. NetLogo is free to run and can be downloaded from: https://ccl.northwestern.edu/netlogo/download.shtml.
+
 1. _predator-prey-model-with_limb_length_input.nlogo_ - the user can specify the limb lengths of the predator and prey, and their performance capabilities are set via scaling relationships with limb length.
 
 2. _predator-prey-model-with_manual_performance_input.nlogo_ - the user can specify the performance capabilities of predator and prey directly.
