@@ -27,7 +27,9 @@ For the global sensitivity analysis, we used a reduced factorial design where ea
 
 1. _Global sensitivity analysis-parameter sampling design.xlsx_ - excel file containing the sampling design for the simulations described above. Gives a summary that describes which file corresponds to which parameter pair at a glance (using the PS_XXX codes).
 
-2. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results-summarised.csv_ - csv file containing the mean and median values of the simulation results (generated using the file _global sensitivity analysis 1-calculate mean and median responses.R_ in the _Analysis_ folder), which was analysed for the global sensitivity analysis (see _global sensitivity analysis 2-multisensi sensitivity analysis.R_ in the _Analysis_ folder).
+2. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results.csv_ - csv file containing all the raw simulation for the global sensitivity analysis in a single file, which was analysed to look at the effects of the four most influential parameters on each model response (see _global sensitivity analysis 3-examine how variation in individual parameters affects model responses.R_ in the _Analysis_ folder).
+
+3. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results-summarised.csv_ - csv file containing the mean and median values of the simulation results (generated using the file _global sensitivity analysis 1-calculate mean and median responses.R_ in the _Analysis_ folder), which was analysed for the global sensitivity analysis (see _global sensitivity analysis 2-multisensi sensitivity analysis.R_ in the _Analysis_ folder).
 
 **2. Obstacle vs refuge experiments**
 
@@ -55,6 +57,8 @@ Contains R code used in the analysis of the data contained in the Data folder.
 1. _global sensitivity analysis 1-calculate mean and median responses.R_ - takes the raw simulation data contained in the subfolders in the _Sensitivity analysis_ data folder and compiles the summarised data file (_predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results-summarised.csv_)
 
 2. _global sensitivity analysis 2-multisensi sensitivity analysis.R_ - conducts the global sensitivity analysis on the summarised data file generated above.
+
+3. _global sensitivity analysis 3-examine how variation in individual parameters affects model responses_ - calculates how variation in each of the four most influential parameters per model response affects that model response.
 
 3. _experiments-obstacles and refuges.R_ - analyses the two raw data files in the _Obstacle vs refuge experiments_ data subfolder.
 
