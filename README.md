@@ -27,9 +27,7 @@ For the global sensitivity analysis, we used a reduced factorial design where ea
 
 1. _Global sensitivity analysis-parameter sampling design.xlsx_ - excel file containing the sampling design for the simulations described above. Gives a summary that describes which file corresponds to which parameter pair at a glance (using the PS_XXX codes).
 
-2. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results.csv_ - csv file containing all the raw simulation for the global sensitivity analysis in a single file, which was analysed to look at the effects of the four most influential parameters on each model response (see _global sensitivity analysis 3-examine how variation in individual parameters affects model responses.R_ in the _Analysis_ folder).
-
-3. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results-summarised.csv_ - csv file containing the mean and median values of the simulation results (generated using the file _global sensitivity analysis 1-calculate mean and median responses.R_ in the _Analysis_ folder), which was analysed for the global sensitivity analysis (see _global sensitivity analysis 2-multisensi sensitivity analysis.R_ in the _Analysis_ folder).
+2. _predator-prey-model-global_sensitivity_analysis-parameter_sets_and_results-summarised.csv_ - csv file containing the mean and median values of the simulation results (generated using the file _global sensitivity analysis 1-calculate mean and median responses.R_ in the _Analysis_ folder), which was analysed for the global sensitivity analysis (see _global sensitivity analysis 2-multisensi sensitivity analysis.R_ in the _Analysis_ folder).
 
 **2. Obstacle vs refuge experiments**
 
