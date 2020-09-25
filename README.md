@@ -1,7 +1,7 @@
 # Predator-prey-ABM
 
 This repository contains the model code, simulation data, and R analysis files for the agent-based model presented in the paper:
-Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. _Journal of Animal Ecology_, accepted.
+Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. _Journal of Animal Ecology_, Early View. DOI: https://doi.org/10.1111/1365-2656.13353
 
 Below is a description of the contents of each folder.
 
