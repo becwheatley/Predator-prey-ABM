@@ -2025,7 +2025,7 @@ HORIZONTAL
 The model simulates a terrestrial predator-prey interaction in habitats with varying numbers of obstacles and refuges. It aims to help understand how these habitat features interact with the predator and prey's relative performance capabilities and specific behaviours to determine the outcome of a pursuit. The model tracks whether or not the prey is detected by the predator (and, if so, the time to detection), whether the prey escapes if detected, along with features of a resulting pursuit such as the length of the prey's escape path and the predator's pursuit path, along with the duration of the pursuit.
 
 If using or modifying the model, please cite:
-Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, <i>accepted in press</i>.
+Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, Early View. DOI: https://doi.org/10.1111/1365-2656.13353
 
 ## HOW IT WORKS
 
