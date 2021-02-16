@@ -192,8 +192,8 @@ to setup
   set sim-time 0                                   ;; length of the simulation [s]
   set prey-escape-length 0                         ;; prey escape path length [m]
   set predator-pursuit-length 0                    ;; predator pursuit path length [m]
-  set prey-curviness 0                             ;; prey escape path curviness [??]
-  set predator-curviness 0                         ;; predator pursuit path curviness [??]
+  set prey-curviness 0                             ;; prey escape path curviness [rad/m] - path curvature defined as in Wilson et al. (2020)
+  set predator-curviness 0                         ;; predator pursuit path curviness [rad/m] - path curvature defined as in Wilson et al. (2020)
 
   ;; threshholds for stochastic elements
   set CONTINUE-ESCAPING (10 * 60)                  ;; (approx) time the prey should continue escaping [s]
@@ -1502,6 +1502,7 @@ end
 ;; Garland T. (1983) The relation between maximal running speed and body mass in terrestrial mammals. Journal of Zoology, 199, 157-170.
 ;; Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. The American Naturalist, 212, 172-186.
 ;; Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. Elife, 4, 18.
+;; Wilson R.S., Pavlic T.P., Wheatley R., Niehaus A.C. & Levy O. (2020). Modeling escape success in terrestrial predator–prey interactions. Integrative and Comparative Biology, 60, 497-508.
 @#$#@#$#@
 GRAPHICS-WINDOW
 795
@@ -2416,7 +2417,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.1.0
+NetLogo 6.1.1
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
