@@ -1936,7 +1936,7 @@ prey-win
 The model simulates a terrestrial predator-prey interaction in habitats with varying numbers of obstacles and refuges. It aims to help understand how these habitat features interact with the predator and prey's relative performance capabilities and specific behaviours to determine the outcome of a pursuit. The model tracks whether or not the prey is detected by the predator (and, if so, the time to detection), whether the prey escapes if detected, along with features of a resulting pursuit such as the length of the prey's escape path and the predator's pursuit path, along with the duration of the pursuit.
 
 If using or modifying the model, please cite:
-Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, Early View. DOI: https://doi.org/10.1111/1365-2656.13353
+Wheatley, R., Pavlic, T.P., Levy, O. & Wilson, R.S. (2020). Habitat features and performance interact to determine the outcomes of terrestrial predator–prey pursuits. <i>Journal of Animal Ecology</i>, 89 (12), 2958-2971. DOI: https://doi.org/10.1111/1365-2656.13353
 
 ## HOW IT WORKS
 
@@ -2010,7 +2010,7 @@ Some interesting modifications would be:
 * Extending to include multiple prey and/or predators, of the same or different species (or other taxonomic group);
 <break></break>
 <break></break>
-* Making the prey's escape strategy dependent on the identity and/or preformance capabilities of the predator in question; 
+* Making the prey's escape strategy dependent on the identity and/or performance capabilities of the predator in question; 
 <break></break>
 <break></break>
 * Making the prey's various anti-predator behaviours dependent on it's distance to cover, familiarity with the terrain, social behaviours of other prey, etc.;
@@ -2031,6 +2031,8 @@ Garland T. (1983) The relation between maximal running speed and body mass in te
 Gendron R.P. & Staddon J.E.R. (1983). Searching for cryptic prey: the effect of search rate. <i>The American Naturalist</i>, 212, 172-186.
 
 Wilson R.P., Griffiths I.W., Mills M.G.L., Carbone C., Wilson J.W. & Scantlebury D.M. (2015) Mass enhances speed but diminishes turn capacity in terrestrial pursuit predators. <i>eLife</i>, 4, 18.
+
+Wilson R.S., Pavlic T.P., Wheatley R., Niehaus, A.C. & Levy O. (2020). Modeling escape success in terrestrial predator–prey interactions. <i>Integrative and Comparative Biology</i>, 60, 497-508.
 @#$#@#$#@
 default
 true
